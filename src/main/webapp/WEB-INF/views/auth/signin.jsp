@@ -7,55 +7,93 @@
 <head>
 
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
+<style>
 
-<title>Insert title here</title>
+body{
+
+	margin : 145px;
+}
+
+div.login_Form{
+	margin : 10px;
+	padding : 20px;
+	width : 250px;
+	height : 40px;
+}
+
+
+img.loginLogo{
+	width : 150px;
+	height : 55px;
+	margin : 33px 65px 0px 65px;
+}
+
+form {
+
+	border : solid 2px #B9B7BD;
+	width :  300px;
+	height : 480px;
+}
+
+input {
+	margin : 10px;
+	border : 15px;
+}
+
+button {
+	margin : 10px;
+	border : 25px;
+}
+
+span {
+	margin : 10px;
+}
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link rel="stylesheet" href="${appRoot }/resources/css/member.css" />
+
+
+<title>로그인 </title>
+
 </head>
+
+<tv:navbar></tv:navbar>
+
 <body>
-	<div class="container">
-		 <main class="loginMain">
-	        <!--로그인섹션-->
-	            <section class="login">
-	               <!--로그인박스-->
-	                <article class="login__form__container">
-	                   <!--로그인 폼-->
-	                   <div class="login__form">
-	                        <h1><img src="/images/logo.jpg" alt=""></h1>
-	                        
-	                        <!--로그인 인풋-->
-	                        <form class="login__input" action="/auth/signin" method="post">
-	                            <input type="text" name="username" placeholder="유저네임" required="required" />
-	                            <input type="password" name="password" placeholder="비밀번호" required="required" />
-	                            <button>로그인</button>
-	                        </form>
-	                        <!--로그인 인풋end-->
-	                        
-	                        <!-- 또는 -->
-	                        <div class="login__horizon">
-	                            <div class="br"></div>
-	                            <div class="or">또는</div>
-	                            <div class="br"></div>
-	                        </div>
-	                        <!-- 또는end -->
-	                        
-	                        <!-- Oauth 소셜로그인 -->
-	                        <div class="login__facebook">
-	                            <button>
-	                                <i class="fab fa-facebook-square"></i>
-	                                <span>Facebook으로 로그인</span>
-	                            </button>
-	                        </div>
-	                        <!-- Oauth 소셜로그인end -->
-	                    </div>
-	                    
-	                    <!--계정이 없으신가요?-->
-	                    <div class="login__register">
-	                        <span>계정이 없으신가요?</span>
-	                        <a href="/auth/signup">가입하기</a>
-	                    </div>
-	                    <!--계정이 없으신가요?end-->
-	                </article>
-	            </section>
-	        </main>
-    </div>
+<div class="container">
+		<div class="row justify-content-center">
+		
+		<form action="${appRoot }/member/loginMem" method="post" class="loginForm">
+		<img class="loginLogo" src="${appRoot }/resources/images/insta.png">
+		
+			<div class="login_Form">
+				<input id="username" type="text" class="form-control" name="username" placeholder="유저네임">
+			</div>
+			<div class="login_Form">
+				<input id="userpw" type="password" class="form-control" name="userpw" placeholder="비밀번호">
+			</div>
+			<div class="login_Form">
+				<button id="loginBtn" type ="submit" class="form-control btn btn-primary" >로그인</button>
+			</div>
+		
+
+		<div class="login_Form">
+			<hr>
+			<button class="form-control btn btn-primary">
+				<i class="fab fa-facebook"></i>Facebook으로 로그인
+			</button>
+			<span>계정이 없으신가요?</span>
+			<a href="/auth/signup">회원가입</a>
+		</div>
+		
+		</form>
+			</div>
+	</div>
+
 </body>
 </html>
